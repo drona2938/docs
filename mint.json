@@ -88,7 +88,7 @@
     "github": "https://github.com/mintlify",
     "linkedin": "https://www.linkedin.com/company/mintsearch" 
   },
-  "openapi": ["api-refrence/openapi.json"]
+  "openapi": ["openapi.json"]
 }
 
 
