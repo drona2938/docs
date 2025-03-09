@@ -3,7 +3,7 @@
   "name": "Starter Kit",
   "logo": {
     "dark": "https://fliqr.ai/cdn/shop/files/Fliqr_9.png?v=1712643720&width=500",
-    "light": "/logo/light.svg"
+    "light": "https://fliqr.ai/cdn/shop/files/Fliqr_9.png?v=1712643720&width=500"
   },
   "favicon": "/favicon.svg",
   "colors": {
