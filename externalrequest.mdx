@@ -1,0 +1,82 @@
+---
+title: 'New file'
+description: 'Description of your new file.'
+---
+
+# External Requests Documentation
+
+External requests enable your chatbot to communicate with external services or APIs, allowing it to fetch data from or send data to external systems. This feature is essential for creating dynamic and data-driven chatbot interactions, where the bot can retrieve real-time information and deliver it directly to the user.
+
+## Types of External Requests
+
+External requests can be categorized into two types: **HTTP GET** and **HTTP POST**. Each serves a specific purpose and should be used in different scenarios based on your requirements.
+
+### HTTP GET Requests
+
+**Purpose**:  
+HTTP GET requests are used to retrieve data from an external resource without modifying it. It is primarily intended for **read-only operations**.
+
+**Characteristics**:
+- Data is sent in the URL as query parameters.
+- GET requests are **idempotent** (repeated requests have the same result).
+- GET requests can be **cached** by browsers, making them suitable for retrieving static data.
+- Sensitive data should **never** be sent via GET as it’s visible in the URL.
+
+**Use Cases**:
+- Retrieving public API data, such as weather forecasts, stock prices, or news headlines.
+- Fetching user profiles based on identifiers (e.g., username or user ID).
+- Accessing web pages or other resources via links.
+
+**When to Use**:
+- Use GET when retrieving data that doesn’t modify the server state.
+- When the operation is idempotent (i.e., repeated requests return the same results).
+- When data can be included in the URL without compromising security.
+
+### HTTP POST Requests
+
+**Purpose**:  
+HTTP POST requests are used to **submit data** to be processed or stored on the server. This is typically used for operations that modify or create resources.
+
+**Characteristics**:
+- Data is sent in the body of the request, making it suitable for larger data submissions.
+- POST requests are **not cached** by default.
+- Unlike GET, POST requests may **modify the server state** and are not idempotent.
+
+**Use Cases**:
+- Submitting form data, such as creating a new user account or updating user preferences.
+- Uploading files to a server.
+- Sending complex data or sensitive information that should not appear in the URL.
+
+**When to Use**:
+- Use POST when submitting data that will be processed or stored on the server.
+- For operations that create, update, or delete resources.
+- When dealing with sensitive data that must not be exposed in the URL.
+
+## Implementing External Requests in Your Chatbot
+
+### Setting Up an External Request in Flow Builder
+
+To initiate an external API request in your chatbot’s conversation flow, follow these steps:
+
+1. **Add an Action**: In **Flow Builder**, navigate to the *Actions* tab and select *External API Request*.
+2. **Configure the Request**: Provide the necessary API endpoint, request method (GET or POST), headers, and query parameters or body content as required.
+3. **Response Mapping**: Capture the API response using **response mapping** to save the retrieved data into **custom fields** for later use in the conversation.
+
+### Storing Data with Response Mapping
+
+When you receive a response from the API, it is often in **JSON** format. You can use **Response Mapping** to store specific data from the API into **custom fields**. For example, if you’re using a currency exchange API, you can store the conversion rate into a custom field and display the result to the user in future interactions.
+
+#### Example: Storing Currency Conversion Rate
+
+Here’s a sample response from a currency exchange API:
+
+```json
+{
+  "success": true,
+  "timestamp": 1519296206,
+  "base": "EUR",
+  "date": "2021-03-17",
+  "rates": {
+    "USD": 1.23396
+  }
+}
