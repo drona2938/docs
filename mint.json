@@ -4,7 +4,7 @@
   "variables": {
     "projectName": "My Awesome Project",
     "version": "1.2.3"
-  }
+  },
   "logo": {
     "dark": "https://fliqr.ai/cdn/shop/files/Fliqr_9.png?v=1712643720&width=500",
     "light": "https://fliqr.ai/cdn/shop/files/Fliqr_9.png?v=1712643720&width=500"
